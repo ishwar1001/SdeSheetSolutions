@@ -1,0 +1,21 @@
+public class Solution {
+	public static ArrayList<ArrayList<Long>> printPascal(int n) {
+                 
+         ArrayList<ArrayList<Long>> ar = new ArrayList<ArrayList<Long>>();
+        
+        ArrayList<Long> row = null;
+        ArrayList<Long> pre = null;
+        
+        for (int i = 0; i < n; ++i) {
+            row = new ArrayList<Long>();
+            for (int j = 0; j <= i; ++j)
+                if (j == 0 || j == i)
+                    row.add((long)1);
+                else
+                    row.add(pre.get(j - 1) + pre.get(j));
+            pre = row;
+            ar.add(row);
+        }
+        return ar;
+	}
+}
